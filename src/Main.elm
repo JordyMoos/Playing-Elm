@@ -8,6 +8,7 @@ import Update exposing (update)
 import Players.Commands exposing (fetchAll)
 import Routing exposing (Route)
 
+
 init : Result String Route -> ( Model, Cmd Msg )
 init result =
     let
@@ -16,9 +17,11 @@ init result =
     in
         ( initialModel currentRoute, Cmd.map PlayersMsg fetchAll )
 
+
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
+
 
 urlUpdate : Result String Route -> Model -> ( Model, Cmd Msg )
 urlUpdate result model =
@@ -27,6 +30,7 @@ urlUpdate result model =
             Routing.routeFromResult result
     in
         ( { model | route = currentRoute }, Cmd.none )
+
 
 main : Program Never
 main =

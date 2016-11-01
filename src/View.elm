@@ -9,10 +9,12 @@ import Players.Edit
 import Players.Models exposing (PlayerId)
 import Routing exposing (Route(..))
 
+
 view : Model -> Html Msg
 view model =
     div []
         [ page model ]
+
 
 page : Model -> Html Msg
 page model =
@@ -25,6 +27,7 @@ page model =
 
         NotFoundRoute ->
             notFoundView
+
 
 playerEditPage : Model -> PlayerId -> Html Msg
 playerEditPage model playerId =
@@ -40,6 +43,7 @@ playerEditPage model playerId =
 
             Nothing ->
                 notFoundView
+
 
 notFoundView : Html Msg
 notFoundView =

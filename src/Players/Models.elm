@@ -9,6 +9,7 @@ type alias Player =
     , level : Int
     }
 
+
 new : Player
 new =
     { id = 0

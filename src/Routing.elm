@@ -10,6 +10,7 @@ type Route
     | PlayerRoute PlayerId
     | NotFoundRoute
 
+
 matchers : Parser (Route -> a) a
 matchers =
     oneOf
@@ -18,15 +19,18 @@ matchers =
         , format PlayersRoute (s "players")
         ]
 
+
 hashParser : Navigation.Location -> Result String Route
 hashParser location =
     location.hash
         |> String.dropLeft 1
         |> parse identity matchers
 
+
 parser : Navigation.Parser (Result String Route)
 parser =
     Navigation.makeParser hashParser
+
 
 routeFromResult : Result String Route -> Route
 routeFromResult result =
